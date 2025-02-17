@@ -1,13 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "a12aa9f1abfe077d5e97ac25702cfaaf"
-application_url = "https://example.com/"
+application_url = "https://instantly-usr-cut-railway.trycloudflare.com"
 embedded = true
 name = "patrick-ta-glow-up-app"
 handle = "patrick-ta-glow-up-app"
 
 [build]
 include_config_on_deploy = true
+automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2025-01"
@@ -25,7 +26,11 @@ api_version = "2025-01"
 scopes = "write_products"
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [
+  "https://instantly-usr-cut-railway.trycloudflare.com/auth/callback",
+  "https://instantly-usr-cut-railway.trycloudflare.com/auth/shopify/callback",
+  "https://instantly-usr-cut-railway.trycloudflare.com/api/auth/callback"
+]
 
 [pos]
 embedded = false

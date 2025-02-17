@@ -22,7 +22,7 @@
   },
   "type": "module",
   "engines": {
-    "node": "18.20 || 20.10 || >=21.0.0"
+    "node": "22.14.0"
   },
   "dependencies": {
     "@prisma/client": "6.2.1",
@@ -45,6 +45,7 @@
     "@remix-run/eslint-config": "2.15.0",
     "@remix-run/route-config": "2.15.0",
     "@shopify/api-codegen-preset": "1.1.1",
+    "@tailwindcss/vite": "4.0.6",
     "@types/eslint": "9.6.1",
     "@types/node": "22.2.0",
     "@types/react": "18.2.31",
@@ -54,6 +55,7 @@
     "husky": "9.1.7",
     "lint-staged": "15.4.3",
     "prettier": "3.2.4",
+    "tailwindcss": "4.0.6",
     "typescript": "5.2.2",
     "vite": "5.1.3"
   },

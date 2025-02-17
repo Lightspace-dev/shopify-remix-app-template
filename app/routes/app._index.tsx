@@ -1,5 +1,5 @@
 import type { LoaderFunctionArgs } from '@remix-run/node'
-import { Page, Layout, Card, Text } from '@shopify/polaris'
+import { Page, Layout, Card } from '@shopify/polaris'
 import { authenticate } from '../shopify.server'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
@@ -13,12 +13,10 @@ export default function Index() {
       <Layout>
         <Layout.Section>
           <Card>
-            <Text as="h1" variant="headingLg">
-              Welcome to your app
-            </Text>
-            <Text as="p" variant="bodyMd">
-              This is your app's home page. Start building your app's features here.
-            </Text>
+            <div className="space-y-4 p-4">
+              <h1 className="text-2xl font-bold text-gray-900">Welcome to your app</h1>
+              <p className="text-gray-600">This is your app's home page. Start building your app's features here.</p>
+            </div>
           </Card>
         </Layout.Section>
       </Layout>

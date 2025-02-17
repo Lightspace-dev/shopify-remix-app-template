@@ -2,6 +2,7 @@ import { vitePlugin as remix } from '@remix-run/dev'
 import { installGlobals } from '@remix-run/node'
 import { defineConfig, type UserConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import tailwindcss from '@tailwindcss/vite'
 
 installGlobals({ nativeFetch: true })
 
@@ -42,6 +43,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    tailwindcss(),
     remix({
       ignoredRouteFiles: ['**/.*'],
       future: {
