@@ -16,11 +16,13 @@
     "shopify": "shopify",
     "prisma": "prisma",
     "graphql-codegen": "graphql-codegen",
-    "vite": "vite"
+    "vite": "vite",
+    "prepare": "husky",
+    "format": "prettier --write . --ignore-path .gitignore"
   },
   "type": "module",
   "engines": {
-    "node": "^18.20 || ^20.10 || >=21.0.0"
+    "node": "18.20 || 20.10 || >=21.0.0"
   },
   "dependencies": {
     "@prisma/client": "6.2.1",
@@ -49,6 +51,8 @@
     "@types/react-dom": "18.2.14",
     "eslint": "8.42.0",
     "eslint-config-prettier": "10.0.1",
+    "husky": "9.1.7",
+    "lint-staged": "15.4.3",
     "prettier": "3.2.4",
     "typescript": "5.2.2",
     "vite": "5.1.3"
@@ -65,5 +69,10 @@
   "overrides": {
     "@graphql-tools/url-loader": "8.0.16"
   },
-  "author": "Lightspace"
+  "author": "Lightspace",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,md,json}": [
+      "prettier --write"
+    ]
+  }
 }
