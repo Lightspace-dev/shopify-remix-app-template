@@ -1,0 +1,121 @@
+Development Guidelines for Remix + Shopify
+
+Code Style and Structure
+	•	Write concise, technical TypeScript code with accurate examples.
+	•	Follow the Remix framework as this is a Remix project.
+	•	Favor object-oriented programming (OOP) and declarative programming patterns.
+	•	Prefer iteration and modularization over code duplication.
+	•	Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+	•	Prefer one export per file, unless multiple exports improve readability and modularity.
+	•	Ensure a clear separation between UI, state management, and business logic to maintain a clean architecture.
+	•	Follow Shopify’s official documentation for setting up and configuring your projects: shopify.dev/docs.
+
+Naming Conventions
+	•	Use lowercase with dashes for directories (e.g., components/auth-wizard).
+	•	Always use named exports for consistency and maintainability.
+	•	Follow Remix conventions for naming loader and action functions, such as loader and action in route files.
+
+TypeScript Usage
+	•	Use TypeScript for all code.
+	•	Prefer interfaces over types, except for utility types or mapped types.
+	•	Avoid enums due to runtime overhead; prefer object maps or union types instead.
+	•	Use functional components with TypeScript interfaces.
+	•	Use strict mode in TypeScript for better type safety.
+	•	Define prop types using TypeScript interfaces at the top of the file for better readability.
+
+Syntax and Formatting
+	•	Use declarative JSX.
+	•	Use Prettier with project-specific settings enforced via lint-staged and Husky.
+	•	Use ESLint with the recommended TypeScript and Remix rules.
+
+UI and Styling
+	•	Use Tailwind CSS for styling.
+	•	Favor Tailwind utility classes over inline styles or unnecessary CSS files.
+	•	Ensure high accessibility (a11y) standards using ARIA roles and native accessibility props.
+	•	Avoid hardcoding padding or margins. Use Tailwind theme configuration for spacing.
+	•	Implement proper keyboard handling.
+	•	Use CSS variables for theming when necessary.
+
+Performance Optimization
+	•	Minimize the use of useState and useEffect.
+	•	Use Remix’s built-in loader functions for efficient data fetching instead of useEffect.
+	•	Implement code splitting and lazy loading for non-critical components with React’s Suspense and dynamic imports.
+	•	Avoid unnecessary re-renders by memoizing components and using useMemo and useCallback hooks appropriately.
+	•	Minimize unnecessary API requests by leveraging caching and revalidation strategies.
+
+Navigation
+	•	Use Remix router for routing and navigation.
+	•	Use nested routing for better component structure and progressive enhancement.
+	•	Use Remix’s Link and NavLink for navigation instead of <a> tags to ensure optimal performance.
+
+State Management
+	•	Minimize use of client-side state and favor server-side state where possible.
+	•	Use React Context sparingly to avoid unnecessary re-renders.
+
+Backend Integration
+	•	Use Prisma for database and data synchronization.
+	•	Optimize database queries by using Prisma’s query optimization techniques and indexes where necessary.
+	•	Implement authentication and authorization using Remix-auth with Shopify’s OAuth system.
+	•	Ensure secure API requests using proper authentication and authorization mechanisms.
+
+Error Handling and Validation
+	•	Prioritize error handling and edge cases:
+	•	Handle errors at the beginning of functions.
+	•	Use early returns for error conditions to avoid deeply nested if statements.
+	•	Avoid unnecessary else statements; use the if-return pattern instead.
+	•	Implement global error boundaries to catch and handle unexpected errors.
+	•	Use domain errors to handle errors in the domain layer.
+	•	Handle loader and action errors using Remix’s useCatch and catchBoundary.
+	•	Use Remix’s ErrorBoundary components for error handling at the route level.
+
+Testing
+	•	Write unit tests using Vitest.
+	•	Implement integration tests for critical user flows using Playwright.
+	•	Use Shopify testing tools for running tests in different environments.
+	•	Use Mock Service Worker (MSW) for API mocking in tests.
+	•	Write test cases for both success and failure scenarios.
+
+Security
+	•	Sanitize user inputs to prevent XSS attacks.
+	•	Ensure secure communication with APIs using HTTPS and proper authentication.
+	•	Implement Content Security Policy (CSP) headers to prevent cross-site scripting (XSS) attacks.
+	•	Use secure, HttpOnly, and same-site cookies for session management.
+
+Internationalization (i18n)
+	•	Use Shopify’s internationalization and localization.
+	•	Support multiple languages.
+	•	Ensure text scaling and font adjustments for accessibility.
+	•	Use URL-based language detection for better SEO and user experience.
+	•	Ensure dynamic content is translatable, including error messages and placeholders.
+	•	Update translation files when new strings are added.
+
+Exports
+	•	Always use named exports.
+	•	Avoid barrel files unless required for API exposure consistency.
+
+React Components
+	•	Use named exports for components.
+	•	Use a variable (const) for the components.
+	•	Use FC to type the variable.
+	•	If a component has children, use PropsWithChildren to type the component.
+	•	Props should be typed within the component’s type definition.
+
+Key Conventions
+	•	Rely on Shopify’s CLI.
+	•	Use npm as the package manager and lock versions using package-lock.json for consistency.
+	•	Leverage Husky and lint-staged to enforce linting and testing before committing code.
+
+API Documentation
+	•	Use Shopify’s official documentation for setting up and configuring your projects: shopify.dev/docs.
+	•	Refer to Remix’s documentation for best practices.
+	•	Use TypeScript doc comments for complex functions and APIs.
+	•	Keep API documentation up-to-date when modifying backend logic.
+
+Code Review & Collaboration
+	•	Use conventional commit messages (feat:, fix:, chore:, etc.).
+	•	Ensure all code changes include relevant test cases.
+
+Remix-Specific Best Practices
+	•	Use nested routes effectively to modularize UI.
+	•	Use Remix’s built-in useLoaderData instead of useEffect for data fetching.
+	•	Handle background jobs and async operations using Remix’s Deferred API.
