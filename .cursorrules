@@ -29,7 +29,7 @@ Syntax and Formatting
 	•	Use ESLint with the recommended TypeScript and Remix rules.
 
 UI and Styling
-	•	Use Tailwind CSS for styling.
+	•	Use Tailwind 4 for styling.
 	•	Favor Tailwind utility classes over inline styles or unnecessary CSS files.
 	•	Ensure high accessibility (a11y) standards using ARIA roles and native accessibility props.
 	•	Avoid hardcoding padding or margins. Use Tailwind theme configuration for spacing.

@@ -1,8 +1,10 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
 import type { LinksFunction } from '@remix-run/node'
 import styles from './styles/globals.css'
+import theme from './styles/theme.css'
 
 export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: theme },
   { rel: 'stylesheet', href: styles },
   { rel: 'preconnect', href: 'https://cdn.shopify.com/' },
   { rel: 'stylesheet', href: 'https://cdn.shopify.com/static/fonts/inter/v4/styles.css' },

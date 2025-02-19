@@ -1,5 +1,5 @@
 {
-  "name": "patrick-ta-glow-up-app",
+  "name": "shopify-remix-app-template",
   "private": true,
   "scripts": {
     "build": "remix vite:build",
@@ -55,6 +55,7 @@
     "husky": "9.1.7",
     "lint-staged": "15.4.3",
     "prettier": "3.2.4",
+    "prettier-plugin-tailwindcss": "0.6.11",
     "tailwindcss": "4.0.6",
     "typescript": "5.2.2",
     "vite": "5.1.3"

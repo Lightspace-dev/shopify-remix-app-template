@@ -13,9 +13,19 @@ export default function Index() {
       <Layout>
         <Layout.Section>
           <Card>
-            <div className="space-y-4 p-4">
-              <h1 className="text-2xl font-bold text-gray-900">Welcome to your app</h1>
-              <p className="text-gray-600">This is your app's home page. Start building your app's features here.</p>
+            <div className="space-y-m p-m bg-background">
+              <h1 className="text-foreground text-2xl font-bold">Welcome to your app</h1>
+              <p className="text-foreground-alt">
+                This is your app's home page. Start building your app's features here.
+              </p>
+              <div className="gap-m mt-l flex">
+                <button className="px-m py-s bg-primary text-on-primary hover:bg-primary-dark rounded">
+                  Primary Button
+                </button>
+                <button className="px-m py-s bg-accent text-on-accent hover:bg-accent-light rounded">
+                  Accent Button
+                </button>
+              </div>
             </div>
           </Card>
         </Layout.Section>

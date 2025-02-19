@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  /* Colors */
+  --color-*: initial;
+  --color-primary: #1a1a1a;
+  --color-primary-light: #333333;
+  --color-primary-dark: #000000;
+
+  --color-accent: #ffd700;
+  --color-accent-light: #ffe44d;
+  --color-accent-dark: #ccb100;
+
+  --color-background: #ffffff;
+  --color-background-alt: #f5f5f5;
+
+  --color-foreground: #1a1a1a;
+  --color-foreground-alt: #4a4a4a;
+
+  --color-on-primary: #ffffff;
+  --color-on-primary-light: #f5f5f5;
+  --color-on-primary-dark: #e0e0e0;
+
+  --color-on-accent: #000000;
+  --color-on-accent-light: #1a1a1a;
+  --color-on-accent-dark: #333333;
+
+  --color-on-background: #1a1a1a;
+  --color-on-background-alt: #4a4a4a;
+
+  --color-on-foreground: #ffffff;
+  --color-on-foreground-alt: #f5f5f5;
+
+  /* Spacing */
+  --spacing-3xs: 2px;
+  --spacing-2xs: 4px;
+  --spacing-xxs: 8px;
+  --spacing-xs: 12px;
+  --spacing-s: 16px;
+  --spacing-m: 24px;
+  --spacing-l: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 56px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 80px;
+  --spacing-5xl: 96px;
+
+  /* Layout spacing */
+  --spacing-layout-xs: 120px;
+  --spacing-layout-s: 160px;
+  --spacing-layout-m: 240px;
+  --spacing-layout-l: 320px;
+  --spacing-layout-xl: 480px;
+}
