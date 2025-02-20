@@ -1,0 +1,50 @@
+name: "[Clickup] Update Task Status Reusable"
+
+on:
+  workflow_call:
+    inputs:
+      branch_name:
+        required: true
+        type: string
+      new_status:
+        required: true
+        type: string
+    secrets:
+      CLICKUP_TOKEN:
+        required: true
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract ClickUp Task ID from Branch Name
+        id: extract_task_id
+        run: |
+          TASK_ID=$(echo "${{ inputs.branch_name }}" | grep -oE 'CU-[a-zA-Z0-9]+' | cut -d'-' -f2)
+
+          if [ -z "$TASK_ID" ]; then
+            echo "No ClickUp task ID found in the branch name."
+            exit 0
+          fi
+
+          echo "Extracted ClickUp Task ID: $TASK_ID"
+          echo "TASK_ID=$TASK_ID" >> $GITHUB_ENV
+
+      - name: Update ClickUp Task Status
+        if: env.TASK_ID != ''
+        run: |
+          RESPONSE=$(curl --request PUT \
+               --url "https://api.clickup.com/api/v2/task/${TASK_ID}" \
+               --header "Authorization: ${{ secrets.CLICKUP_TOKEN }}" \
+               --header "accept: application/json" \
+               --header "content-type: application/json" \
+               --data "{\"status\":\"${{ inputs.new_status }}\"}")
+
+          echo "Response: $RESPONSE"
+
+          if echo "$RESPONSE" | jq -e ".status.status == \"${{ inputs.new_status }}\"" > /dev/null; then
+            echo "ClickUp task status updated successfully to ${{ inputs.new_status }}."
+          else
+            echo "Failed to update ClickUp task status."
+            exit 1
+          fi 

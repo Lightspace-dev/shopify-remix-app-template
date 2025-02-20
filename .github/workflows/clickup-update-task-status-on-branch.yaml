@@ -1,0 +1,14 @@
+name: "[Clickup] Update Task Status on Branch Creation"
+
+on:
+  create:
+    branches:
+
+jobs:
+  update-clickup:
+    uses: ./.github/workflows/clickup-update-task-status-reusable.yaml
+    with:
+      branch_name: ${{ github.ref_name }}
+      new_status: "In Progress"
+    secrets:
+      CLICKUP_TOKEN: ${{ secrets.CLICKUP_TOKEN }} 

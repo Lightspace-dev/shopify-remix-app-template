@@ -1,0 +1,31 @@
+name: "[Clickup] Update Task Status on PR"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - closed
+
+jobs:
+  determine-status:
+    runs-on: ubuntu-latest
+    steps:
+      - id: set-status
+        run: |
+          if [ "${{ github.event.action }}" = "opened" ]; then
+            echo "status=In Review" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.action }}" = "closed" ] && [ "${{ github.event.pull_request.merged }}" = "true" ]; then
+            echo "status=Approved" >> $GITHUB_OUTPUT
+          else
+            echo "status=" >> $GITHUB_OUTPUT
+          fi
+
+  update-clickup:
+    needs: determine-status
+    if: needs.determine-status.outputs.status != ''
+    uses: ./.github/workflows/clickup-update-task-status-reusable.yaml
+    with:
+      branch_name: ${{ github.event.pull_request.head.ref }}
+      new_status: ${{ needs.determine-status.outputs.status }}
+    secrets:
+      CLICKUP_TOKEN: ${{ secrets.CLICKUP_TOKEN }}
