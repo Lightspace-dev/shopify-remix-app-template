@@ -19,9 +19,11 @@
     "vite": "vite",
     "prepare": "husky",
     "format": "prettier --write . --ignore-path .gitignore",
-    "test": "npm run test && npm run test:e2e",
-    "test:unit": "vitest",
-    "test:e2e": "vitest --browser chromium"
+    "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "test:unit": "vitest --run --project unit",
+    "test:integration": "vitest --run --project integration",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "type": "module",
   "engines": {
@@ -46,6 +48,7 @@
     "vite-tsconfig-paths": "5.1.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.50.1",
     "@remix-run/eslint-config": "2.15.3",
     "@remix-run/route-config": "2.15.3",
     "@shopify/api-codegen-preset": "1.1.1",

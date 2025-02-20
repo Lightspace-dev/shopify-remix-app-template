@@ -26,6 +26,12 @@ If you used the CLI to create the template, you can skip this section.
 npm install
 ```
 
+### Install Playwright
+
+```shell
+npx playwright install --with-deps
+```
+
 ### Local Development
 
 Using npm:

@@ -12,13 +12,16 @@ database.sqlite
 
 .env
 .env.*
-
-
-
-
+!.env.example
 
 /extensions/*/dist
 
 # Ignore shopify files created during app dev
 .shopify/*
 .shopify.lock
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

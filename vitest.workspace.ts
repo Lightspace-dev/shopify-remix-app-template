@@ -1,19 +1,17 @@
-import react from '@vitejs/plugin-react'
 import { defineWorkspace } from 'vitest/config'
 
 export default defineWorkspace([
   {
-    plugins: [react()],
     test: {
-      include: ['**/*.test.ts'],
+      include: ['**/*.unit.test.ts'],
       name: 'unit',
       environment: 'node',
     },
   },
   {
     test: {
-      include: ['**/*.e2e-test.ts'],
-      name: 'e2e',
+      include: ['**/*.it.test.tsx'],
+      name: 'integration',
       browser: {
         enabled: true,
         provider: 'playwright',
