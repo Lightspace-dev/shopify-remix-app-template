@@ -1,5 +1,5 @@
 {
-  "include": ["env.d.ts", "**/*.ts", "**/*.tsx", "eslint.config.js", "eslint.config.cjs"],
+  "include": ["env.d.ts", "**/*.ts", "**/*.tsx", "eslint.config.js"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "strict": true,
