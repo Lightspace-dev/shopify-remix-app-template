@@ -104,6 +104,7 @@ Key Conventions
 	•	Rely on Shopify’s CLI.
 	•	Use npm as the package manager and lock versions using package-lock.json for consistency.
 	•	Leverage Husky and lint-staged to enforce linting and testing before committing code.
+	•	Use ?? instead of || for nullish coalescing.
 
 API Documentation
 	•	Use Shopify’s official documentation for setting up and configuring your projects: shopify.dev/docs.

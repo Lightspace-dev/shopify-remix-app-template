@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "668b778702c0e296c542c4476340f3fc"
-application_url = "https://hanging-boost-marketing-flyer.trycloudflare.com"
+application_url = "https://plots-full-altered-saw.trycloudflare.com"
 embedded = true
 name = "remix-app-template"
 handle = "remix-app-template-14"
@@ -19,9 +19,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://hanging-boost-marketing-flyer.trycloudflare.com/auth/callback",
-  "https://hanging-boost-marketing-flyer.trycloudflare.com/auth/shopify/callback",
-  "https://hanging-boost-marketing-flyer.trycloudflare.com/api/auth/callback"
+  "https://plots-full-altered-saw.trycloudflare.com/auth/callback",
+  "https://plots-full-altered-saw.trycloudflare.com/auth/shopify/callback",
+  "https://plots-full-altered-saw.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

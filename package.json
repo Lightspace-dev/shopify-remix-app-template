@@ -39,7 +39,6 @@
     "@remix-run/react": "2.15.3",
     "@remix-run/serve": "2.15.3",
     "@shopify/app-bridge-react": "4.1.6",
-    "@shopify/cli": "3.75.3",
     "@shopify/polaris": "13.9.3",
     "@shopify/shopify-app-remix": "3.7.1",
     "@shopify/shopify-app-session-storage-prisma": "6.0.1",
