@@ -1,7 +1,7 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
 import type { LinksFunction } from '@remix-run/node'
-import styles from './styles/globals.css'
-import theme from './styles/theme.css'
+import styles from './styles/globals.css?url'
+import theme from './styles/theme.css?url'
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: theme },
