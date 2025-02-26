@@ -44,6 +44,57 @@ Press P to open the URL to your app. Once you click install, you can start devel
 
 Local development is powered by [the Shopify CLI](https://shopify.dev/docs/apps/tools/cli). It logs into your partners account, connects to an app, provides environment variables, updates remote config, creates a tunnel and provides commands to generate extensions.
 
+### Commit Lint and Semantic Release
+
+This project uses [Commitlint](https://commitlint.js.org/) and [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) to ensure consistent commit messages and automated versioning.
+
+#### Commit Messages
+
+We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. Each commit message should be structured as follows:
+
+```
+type(scope): description
+
+[optional body]
+
+[optional footer(s)]
+```
+
+**Types:**
+
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation changes
+- `style`: Changes that don't affect the code's meaning (white-space, formatting, etc.)
+- `refactor`: Code changes that neither fix a bug nor add a feature
+- `perf`: Performance improvements
+- `test`: Adding or correcting tests
+- `chore`: Changes to build process or auxiliary tools
+
+**Examples:**
+
+```sh
+git commit -m "feat(product): add new color selector"
+git commit -m "fix(cart): resolve checkout button not working"
+git commit -m "docs: update installation instructions"
+```
+
+#### Semantic Release
+
+Semantic Release automates the whole package release workflow including:
+
+- Determining the next version number
+- Generating release notes
+- Publishing the package
+
+The version numbers are automatically determined based on commit messages:
+
+- `feat`: triggers a minor release (1.x.0)
+- `fix` or `perf`: triggers a patch release (1.0.x)
+- Breaking changes (noted by `BREAKING CHANGE` in commit message): triggers a major release (x.0.0)
+
+The release process is automated through our CI/CD pipeline, triggered on merges to the main branch.
+
 ### Authenticating and querying data
 
 To authenticate and query data you can use the `shopify` const that is exported from `/app/shopify.server.js`:
