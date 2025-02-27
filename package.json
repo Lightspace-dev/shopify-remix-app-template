@@ -19,13 +19,13 @@
     "prisma": "prisma",
     "graphql-codegen": "graphql-codegen",
     "vite": "vite",
-    "prepare": "husky",
     "format": "prettier --write . --ignore-path .gitignore",
     "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
     "test:unit": "vitest --run --project unit",
     "test:integration": "vitest --run --project integration",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "prepare": "node .husky/install.mjs"
   },
   "type": "module",
   "engines": {
