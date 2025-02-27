@@ -26,6 +26,6 @@ export default [
     },
   },
   ...tseslint.configs.recommended,
-
   includeIgnoreFile(gitignorePath),
+  { ignores: ['**/generated/**'] },
 ]
