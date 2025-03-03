@@ -55,7 +55,7 @@ jobs:
         run: shopify app deploy -f --source-control-url "$COMMIT_URL"
 
   deploy-fly:
-    name: Deploy to Fly.io
+    name: Deploy to Fly
     runs-on: ubuntu-latest
     concurrency: deploy-group # optional: ensure only one action runs at a time
     steps:
