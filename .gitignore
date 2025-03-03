@@ -16,6 +16,7 @@ database.sqlite
 !.env.example
 
 /extensions/*/dist
+.idea 
 
 # Ignore shopify files created during app dev
 .shopify/*
