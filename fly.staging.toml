@@ -1,0 +1,37 @@
+# fly.toml app configuration file generated for global-compliance-app on 2025-02-28T18:07:00+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = '<NAME>'
+primary_region = 'sjc'
+
+[build]
+
+[env]
+  PORT = '3000'
+  SCOPES = 'write_products'
+  SHOPIFY_APP_URL = '<URL>'
+
+[processes]
+  app = 'node ./dbsetup.js npm run docker-start'
+
+[[mounts]]
+  source = 'data'
+  destination = '/data'
+  auto_extend_size_threshold = 80
+  auto_extend_size_increment = '1GB'
+  auto_extend_size_limit = '10GB'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
