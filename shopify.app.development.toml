@@ -7,7 +7,7 @@ name = "<NAME>"
 handle = "<HANDLE>"
 
 [build]
-automatically_update_urls_on_dev = false
+automatically_update_urls_on_dev = true
 include_config_on_deploy = true
 
 [webhooks]
