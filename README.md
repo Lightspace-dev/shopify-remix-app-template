@@ -123,6 +123,46 @@ This template uses [Remix](https://remix.run). The following Shopify tools are a
 - [Webhooks](https://github.com/Shopify/shopify-app-js/tree/main/packages/shopify-app-remix#authenticating-webhook-requests): Callbacks sent by Shopify when certain events occur
 - [Polaris](https://polaris.shopify.com/): Design system that enables apps to create Shopify-like experiences
 
+## Webhooks
+
+This app implements Shopify webhooks to follow the [Privacy Law Compliance](https://shopify.dev/docs/apps/build/privacy-law-compliance). The following webhooks are supported:
+
+- `customers/data-request`: Handles customer data requests
+- `customers/redact`: Handles customer data deletion requests
+- `shop/redact`: Handles shop data deletion requests
+- `app/uninstalled`: Handles app uninstallation
+- `app/scopes_update`: Handles app scopes update
+
+### Testing Webhooks
+
+You can test webhooks locally using the Shopify CLI. Here's how to test a webhook:
+
+```bash
+shopify app webhook trigger \
+  --address <URL>/webhooks/customers/data-request \
+  --api-version 2025-01 \
+  --client-secret <CLIENT_SECRET> \
+  --topic <TOPIC> \
+  --delivery-method http
+```
+
+Replace the following placeholders:
+
+- `<URL>`: Your app's URL (e.g., `https://some-url.trycloudflare.com` for local development)
+- `<CLIENT_SECRET>`: Your app's client secret from the Shopify Partner dashboard
+- `<TOPIC>`: The webhook topic to test (e.g., `customers/data-request`)
+
+Example for testing a customer data request:
+
+```bash
+shopify app webhook trigger \
+  --address https://way-pitch-behaviour-processors.trycloudflare.com/webhooks/customers/data-request \
+  --api-version 2025-01 \
+  --client-secret your_client_secret \
+  --topic customers/data-request \
+  --delivery-method http
+```
+
 ## Resources
 
 - [Remix Docs](https://remix.run/docs/en/v1)
