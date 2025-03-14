@@ -99,18 +99,36 @@ npm run build
 
 ## Deployment
 
-Once you are ready to deploy you need to run in the terminal:
+First, create the production and staging app on fly.io:
 
 ```shell
-fly launch --no-deploy
+fly apps create <APP_NAME>
+fly apps create <APP_NAME>-staging
 ```
+
+Remember to create them in the Lightspace organization.
+
+## Shopify app creation
+
+You need to create three apps: one for development, one for staging and another one for production. You can do so by running the following command:
+
+```shell
+shopify app config link
+```
+
+When setting the name follow this guidelines:
+
+- Development environment: `<APP_NAME>-development`
+- Staging environment: `<APP_NAME>-staging`
+- Production environment: `<APP_NAME>`
 
 ## Setting environment variables
 
-Check `.env.example` to review which are the required environment variables. You need to set them using fly.io:
+Check `.env.example` to review which are the required environment variables. You need to set the variables in staging and production. You need to set them using fly.io:
 
 ```
-fly secrets set FOO=bar
+fly secrets set FOO=bar --config fly.production.toml
+fly secrets set FOO=bar --config fly.staging.toml
 ```
 
 ## Tech Stack
